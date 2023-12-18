@@ -1,5 +1,5 @@
 apk update
-apk add docker micro
+apk add docker docker-compose micro
 rc-update add docker
 service docker start
 

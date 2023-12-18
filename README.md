@@ -15,3 +15,5 @@
 14. IPv4/CIDR 192.168.88.3
 15. Gateway (IPv4) 192.168.88.1
 16. Next -> Next -> Finish
+
+`wget -O - https://raw.githubusercontent.com/fishie/hemmait/main/docker-host.sh | sh`
