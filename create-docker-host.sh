@@ -1,11 +1,8 @@
-# Use a subshell to handle interactive input
-(
-  echo -n 'ID: '
-  read id
-  echo -n 'Password: '
-  read -s password
-  echo
-) < /dev/tty
+echo -n 'ID: '
+read id < /dev/tty
+echo -n 'Password: '
+read -s password < /dev/tty
+echo
 
 template=$(pveam available | grep 'alpine' | sort -V | tail -n 1 | awk '{print $2}')
 pveam update && pveam download local $template
