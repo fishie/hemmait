@@ -9,4 +9,10 @@ wget -O "/etc/$unifi_folder/mongo/init-mongo.js" https://raw.githubusercontent.c
 mkdir "$unifi_folder"
 wget -O "$unifi_folder/compose.yml" https://raw.githubusercontent.com/fishie/hemmait/main/unifi/compose.yml
 cd "$unifi_folder"
+
+while ! docker info > /dev/null 2>&1; do
+    echo "Docker is not running yet. Waiting..."
+    sleep 1
+done
+
 docker compose up -d
