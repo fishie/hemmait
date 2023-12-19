@@ -10,7 +10,7 @@ pveam update && pveam download local $template
 pct create $id \
     /var/lib/vz/template/cache/$template \
     -ostype alpine \
-    -hostname test-host \
+    -hostname docker-host \
     -cores 2 \
     -memory 2048 \
     -swap 2048 \
