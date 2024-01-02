@@ -366,7 +366,7 @@
                         <Name>rishie</Name>
                         <Group>Administrators</Group>
                         <Password>
-                            <Value></Value>
+                            <Value>password</Value>
                             <PlainText>true</PlainText>
                         </Password>
                     </LocalAccount>
@@ -377,7 +377,7 @@
                 <Enabled>true</Enabled>
                 <LogonCount>1</LogonCount>
                 <Password>
-                    <Value></Value>
+                    <Value>password</Value>
                     <PlainText>true</PlainText>
                 </Password>
             </AutoLogon>

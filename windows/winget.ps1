@@ -1,15 +1,8 @@
-Install-PackageProvider NuGet -Force
-Install-Module PSWindowsUpdate -Force
-Set-ExecutionPolicy RemoteSigned
-
-
-# https://learn.microsoft.com/en-us/windows/package-manager/winget/#install-winget-on-windows-sandbox
-Write-Host "Downloading WinGet..."
 Invoke-WebRequest -Uri https://aka.ms/getwinget -OutFile WinGet.msixbundle
 Add-AppxPackage WinGet.msixbundle
-winget source update
 
-winget upgrade --all
+winget source update
+winget upgrade --all --accept-source-agreements
 
 winget add Microsoft.PowerShell --accept-source-agreements
 winget add zyedidia.micro --accept-source-agreements
