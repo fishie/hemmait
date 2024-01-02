@@ -396,10 +396,10 @@
                     <Order>3</Order>
                     <CommandLine>powershell.exe -NoProfile -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishie/hemmait/main/windows/first-logon.ps1'))"</CommandLine>
                 </SynchronousCommand>
-                <RunSynchronousCommand wcm:action="add">
+                <SynchronousCommand wcm:action="add">
                     <Order>4</Order>
-                    <Path>reg.exe add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System /v ConsentPromptBehaviorAdmin /t REG_DWORD /d 5 /f</Path>
-                </RunSynchronousCommand>
+                    <CommandLine>reg.exe add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System /v ConsentPromptBehaviorAdmin /t REG_DWORD /d 5 /f</CommandLine>
+                </SynchronousCommand>
             </FirstLogonCommands>
         </component>
     </settings>

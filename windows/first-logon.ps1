@@ -1,9 +1,7 @@
 Invoke-WebRequest -Uri https://aka.ms/getwinget -OutFile WinGet.msixbundle
 Add-AppxPackage WinGet.msixbundle
-Delete-Item WinGet.msixbundle
-
+Remove-Item WinGet.msixbundle
 winget source update
-winget upgrade --all --accept-source-agreements
 
 winget add Microsoft.PowerShell --accept-source-agreements
 winget add zyedidia.micro --accept-source-agreements
