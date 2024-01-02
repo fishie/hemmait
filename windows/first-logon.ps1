@@ -1,5 +1,6 @@
 Invoke-WebRequest -Uri https://aka.ms/getwinget -OutFile WinGet.msixbundle
 Add-AppxPackage WinGet.msixbundle
+Delete-Item WinGet.msixbundle
 
 winget source update
 winget upgrade --all --accept-source-agreements
