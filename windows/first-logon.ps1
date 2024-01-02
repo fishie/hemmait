@@ -14,6 +14,3 @@ winget add Mozilla.Firefox --accept-source-agreements
 winget add Valve.Steam --accept-source-agreements
 winget add clsid2.mpc-hc --accept-source-agreements
 winget add SomePythonThings.WingetUIStore --accept-source-agreements
-
-reg.exe delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v Steam /f
-reg.exe add "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v Steam /t REG_SZ /d "\`"C:\Program Files (x86)\Steam\steam.exe\`" -silent" /f
