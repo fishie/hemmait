@@ -394,10 +394,18 @@
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <Order>3</Order>
-                    <CommandLine>powershell.exe -NoProfile -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishie/hemmait/main/windows/first-logon.ps1'))"</CommandLine>
+                    <CommandLine>D:\guest-agent\qemu-ga-x86_64.msi</CommandLine>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <Order>4</Order>
+                    <CommandLine>D:\virtio-win-gt-x64.msi /quiet</CommandLine>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <Order>5</Order>
+                    <CommandLine>powershell.exe -NoProfile -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishie/hemmait/main/windows/first-logon.ps1'))"</CommandLine>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <Order>6</Order>
                     <CommandLine>reg.exe add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System /v ConsentPromptBehaviorAdmin /t REG_DWORD /d 5 /f</CommandLine>
                 </SynchronousCommand>
             </FirstLogonCommands>
