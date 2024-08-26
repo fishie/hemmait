@@ -13,4 +13,5 @@ winget add Brave.Brave --accept-source-agreements
 winget add Mozilla.Firefox --accept-source-agreements
 winget add Valve.Steam --accept-source-agreements
 winget add clsid2.mpc-hc --accept-source-agreements
+winget add AutoHotkey.AutoHotkey --accept-source-agreements
 winget add SomePythonThings.WingetUIStore --accept-source-agreements
