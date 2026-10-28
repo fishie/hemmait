@@ -1,0 +1,45 @@
+# UniFi OS Server (Ubiquiti image repacked for Docker by Gill-Bates, https://github.com/Gill-Bates/unifi-os-server).
+# Certificate: Let's Encrypt, managed by UniFi OS itself.
+services:
+  unifi-os-server:
+    image: giiibates/unifi-os-server:latest
+    container_name: unifi-os-server
+    cgroup: host
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    stop_signal: SIGRTMIN+3
+    environment:
+      UOS_SYSTEM_IP: 192.168.88.3
+    networks:
+      lan:
+        ipv4_address: 192.168.88.3
+    tmpfs:
+      - /run:exec
+      - /run/lock
+      - /tmp:exec
+      - /var/opt/unifi/tmp:size=64m
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+      - /etc/localtime:/etc/localtime:ro
+      - ./data/persistent:/persistent
+      - ./data/var-log:/var/log
+      - ./data/data:/data
+      - ./data/srv:/srv
+      - ./data/var-lib-unifi:/var/lib/unifi
+      - ./data/var-lib-postgresql:/var/lib/postgresql
+      - ./data/var-lib-mongodb:/var/lib/mongodb
+      - ./data/etc-rabbitmq-ssl:/etc/rabbitmq/ssl
+    restart: unless-stopped
+
+networks:
+  # macvlan: the container gets its own MAC and IP on the LAN, so no port mapping applies.
+  # Docker allows one macvlan network per parent interface (eth0).
+  lan:
+    driver: macvlan
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+        - subnet: 192.168.88.0/24
+          gateway: 192.168.88.1

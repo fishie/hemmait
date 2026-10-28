@@ -1,2 +1,0 @@
-#!/bin/sh
-/root/certbot-venv/bin/certbot renew --quiet --deploy-hook "/sbin/rc-service nginx reload"
