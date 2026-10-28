@@ -1,0 +1,20 @@
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: ghcr.io/home-assistant/home-assistant:stable
+    network_mode: host
+    restart: unless-stopped
+    tmpfs:
+      - /config/www/live:size=32m
+    volumes:
+      - ./config:/config
+      - /etc/localtime:/etc/localtime:ro
+
+  matter-server:
+    image: ghcr.io/home-assistant-libs/python-matter-server:stable
+    network_mode: host
+    security_opt: [apparmor:unconfined]
+    restart: unless-stopped
+    volumes:
+      - ./matter-data:/data
+    command: --storage-path /data --primary-interface eth0
