@@ -2,8 +2,11 @@ apk update
 apk add \
     docker \
     docker-compose \
+    fish \
     jq \
-    micro
+    micro \
+    nginx \
+    samba
 rc-update add docker
 rc-service docker start
 
