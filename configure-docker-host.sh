@@ -7,7 +7,7 @@ unifi_os_folder='unifi-os'
 repo_url='https://raw.githubusercontent.com/fishie/hemmait/main/unifi-os'
 
 mkdir "$unifi_os_folder"
-wget -O "$unifi_os_folder/compose.yml" "$repo_url/compose.yml"
+wget -O "$unifi_os_folder/compose.yaml" "$repo_url/compose.yaml"
 cd "$unifi_os_folder"
 
 while ! docker info > /dev/null 2>&1; do
